@@ -49,7 +49,7 @@ class HcfMiddleware(object):
             raise NotConfigured('%s not found' % key)
         return value
 
-    def _msg(self, msg, level=log.INFO):
+    def _msg(self, msg, level=logging.INFO):
         self.logger.log(level, msg)
 
     def start_job(self, spider):
