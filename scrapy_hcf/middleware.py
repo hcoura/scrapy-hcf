@@ -4,10 +4,10 @@ import logging
 from collections import defaultdict
 from datetime import datetime
 from scrapinghub import Connection
-from scrapy import signals, log
+from scrapy import signals
 from scrapy.exceptions import NotConfigured
 from scrapy.http import Request
-from hubstorage import HubstorageClient
+from scrapinghub import HubstorageClient
 
 DEFAULT_MAX_LINKS = 1000
 DEFAULT_HS_NUMBER_OF_SLOTS = 8
@@ -41,6 +41,7 @@ class HcfMiddleware(object):
 
         # Make sure the logger for hubstorage.batchuploader is configured
         logging.basicConfig()
+        self.logger = logging.getLogger("HCF")
 
     def _get_config(self, settings, key, default=None):
         value = settings.get(key, default)
@@ -49,7 +50,7 @@ class HcfMiddleware(object):
         return value
 
     def _msg(self, msg, level=log.INFO):
-        log.msg('(HCF) %s' % msg, level)
+        self.logger.log(level, msg)
 
     def start_job(self, spider):
         self._msg("Starting new job for: %s" % spider.name)

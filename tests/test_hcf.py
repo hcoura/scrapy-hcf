@@ -6,7 +6,7 @@ from scrapy.http import Request, Response
 from scrapy.spider import Spider
 from scrapy.utils.test import get_crawler
 from scrapy.exceptions import NotConfigured
-from hubstorage import HubstorageClient
+from scrapinghub import HubstorageClient
 
 from scrapy_hcf import HcfMiddleware
 
