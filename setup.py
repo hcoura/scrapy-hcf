@@ -20,5 +20,5 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
     ],
-    install_requires=['scrapy', 'hubstorage', 'scrapinghub']
+    install_requires=['scrapy', 'scrapinghub>=1.9.0']
 )
