@@ -1,2 +1,2 @@
 scrapy
-scrapinghub
+scrapinghub>=1.9.0
